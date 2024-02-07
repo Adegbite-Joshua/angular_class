@@ -1,10 +1,27 @@
 <div>
-    <!-- <input type="text" [(ngModel)]="first_name" name="first_name">
-    <input type="text" [(ngModel)]="last_name" name="last_name">
-    <input type="email" [(ngModel)]="email" name="email">
-    <input type="password" [(ngModel)]="password" name="password">
-    <input type="text" [(ngModel)]="age" name="age"> -->
+    <p>Template Driven Form</p>
+    <input required type="text" [(ngModel)]="first_name" name="first_name" placeholder="first_name">
+    <input required type="text" [(ngModel)]="last_name" name="last_name" placeholder="last_name">
+    <input required type="email" [(ngModel)]="email" name="email" placeholder="email">
+    <input required type="password" [(ngModel)]="password" name="password" placeholder="password">
+    <input required type="text" [(ngModel)]="age" name="age" placeholder="age">
 
-    <button type="submit">Sign Up</button>
+    <button (click)="createAccount()">Sign Up</button>
     
+
+    <div>
+        <table class="table table-dark table-striped">
+            <tr>
+                <th>S/N</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Address</th>
+            </tr>
+            <tr *ngFor="let id = index; let account of sign_up_array">
+
+            </tr>
+        </table>
+    </div>
 </div>

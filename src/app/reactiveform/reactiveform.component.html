@@ -1,0 +1,55 @@
+<div class="container mx-auto">
+    <p>Template Driven Form</p>
+    <form class="col-6 mx-auto" [formGroup]="sign_up_form">
+        <div>
+            <input class="form-control my-2" [class.is-valid]="sign_up_form.get('first_name')?.valid && sign_up_form.get('first_name')?.dirty" [class.is-invalid]="sign_up_form.get('first_name')?.invalid && sign_up_form.get('first_name')?.dirty" type="text" formControlName="first_name" placeholder="first_name">
+            <div class="text-danger" *ngIf="sign_up_form.get('first_name')?.invalid && sign_up_form.get('first_name')?.dirty">
+                <span *ngIf="sign_up_form.get('first_name')?.errors?.['required']">This field is required</span>
+                <span *ngIf="sign_up_form.get('first_name')?.errors?.['minlength']">Minimum of two characters are required</span>
+                <span *ngIf="sign_up_form.get('first_name')?.errors?.['maxlength']">Maximum of 20 characters are required</span>
+            </div>
+        </div>
+
+        <div>
+            <input class="form-control my-2" [class.is-valid]="sign_up_form.get('last_name')?.valid && sign_up_form.get('last_name')?.dirty" [class.is-invalid]="sign_up_form.get('last_name')?.invalid && sign_up_form.get('last_name')?.dirty" type="text" formControlName="last_name" placeholder="last_name">
+            <div class="text-danger" *ngIf="sign_up_form.get('last_name')?.invalid && sign_up_form.get('last_name')?.dirty">
+                <span *ngIf="sign_up_form.get('last_name')?.errors?.['required']">This field is required</span>
+                <span *ngIf="sign_up_form.get('last_name')?.errors?.['minlength']">Minimum of two characters are required</span>
+                <span *ngIf="sign_up_form.get('last_name')?.errors?.['maxlength']">Maximum of 20 characters are required</span>
+            </div>
+        </div>
+        
+        <div>
+            <input class="form-control my-2" [class.is-valid]="sign_up_form.get('email')?.valid && sign_up_form.get('email')?.dirty" [class.is-invalid]="sign_up_form.get('email')?.invalid && sign_up_form.get('email')?.dirty" type="email" formControlName="email" placeholder="email">
+            <div class="text-danger" *ngIf="sign_up_form.get('email')?.invalid && sign_up_form.get('email')?.dirty">
+                <span *ngIf="sign_up_form.get('email')?.errors?.['required']">This field is required</span>
+                <span *ngIf="sign_up_form.get('email')?.errors?.['email']">Enter a valid email</span>
+            </div>
+            
+        </div>
+
+        <div>
+            <input class="form-control my-2" [class.is-valid]="sign_up_form.get('password')?.valid && sign_up_form.get('password')?.dirty" [class.is-invalid]="sign_up_form.get('password')?.invalid && sign_up_form.get('password')?.dirty" type="password" formControlName="password" placeholder="password">
+            <div class="text-danger" *ngIf="sign_up_form.get('password')?.invalid && sign_up_form.get('password')?.dirty">
+                <span *ngIf="sign_up_form.get('password')?.errors?.['required']">This field is required</span>
+                <span *ngIf="sign_up_form.get('password')?.errors?.['minlength']">Minimum of 5 characters are required</span>
+            </div>
+            
+        </div>
+
+        <div>
+            <input class="form-control my-2" [class.is-invalid]="sign_up_form.get('age')?.invalid && sign_up_form.get('age')?.dirty" type="text" formControlName="age" placeholder="age">
+            <div class="text-danger" *ngIf="sign_up_form.get('age')?.invalid && sign_up_form.get('age')?.dirty">
+                <span *ngIf="sign_up_form.get('age')?.errors?.['required']">This field is required</span>
+            </div>
+
+        </div>
+
+        <button [disabled]="sign_up_form.invalid" (click)="logValues()" class="btn btn-success w-100">Sign Up</button>
+    </form>
+
+
+
+</div>
+
+<!-- a tag, onclick -->
