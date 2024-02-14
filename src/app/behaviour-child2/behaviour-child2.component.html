@@ -1,0 +1,9 @@
+<div class="">
+    <div *ngIf="user_details" class="shadow p-5">
+        <p>First Name: {{user_details?.first_name ? user_details?.first_name : 'Select A User'}}</p>
+        <p>Last Name: {{user_details?.last_name ? user_details?.last_name : 'Select A User'}}</p>
+        <p>Age: {{user_details?.age ? user_details?.age : 'Select A User'}}</p>
+        <p>Email: {{user_details?.email ? user_details?.email : 'Select A User'}}</p>
+    </div>
+
+</div>

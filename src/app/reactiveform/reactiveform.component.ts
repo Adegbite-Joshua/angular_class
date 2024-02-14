@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -11,6 +11,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './reactiveform.component.css'
 })
 export class ReactiveformComponent {
+  // form1: FormGroup;
+  // form2: FormGroup;
   constructor(public form_builder:FormBuilder){}
 
   public sign_up_form = this.form_builder.group({
@@ -28,8 +30,6 @@ export class ReactiveformComponent {
     console.log(this.sign_up_form.value['email']);
 
     console.log(this.sign_up_form.controls.first_name.errors);
-    
-    
 
     //Resetting the form
 
@@ -37,8 +37,7 @@ export class ReactiveformComponent {
   }
 
   logValues(){
-    alert('hello')
-    console.log(this.sign_up_form.errors);
+    console.log(this.sign_up_form.controls.last_name);
     
   }
 
