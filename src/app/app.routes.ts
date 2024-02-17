@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { BehaviorSignUpComponent } from './behavior-sign-up/behavior-sign-up.component';
 import { BehaviourSubjectParentComponent } from './behaviour-subject-parent/behaviour-subject-parent.component';
 import { HomeComponent } from './home/home.component';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
@@ -14,5 +15,6 @@ export const routes: Routes = [
     {path: 'reactiveform', component: ReactiveformComponent},
     {path: 'params/:id', component: SigninComponent},
     {path: 'behaviour_subject', component: BehaviourSubjectParentComponent},
+    {path: 'behaviour_sign_up', component: BehaviorSignUpComponent},
 
 ];

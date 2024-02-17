@@ -1,0 +1,25 @@
+<div class="container-fluid mx-auto p-5">
+    <form class="col-6 mx-auto" [formGroup]="sign_up_form">
+        <div>
+            <label for="">First Name</label>
+            <input class="form-control my-2" type="text" formControlName="first_name" placeholder="First Name" id="">
+        </div>
+        <div>
+            <label for="">Last Name</label>
+            <input class="form-control my-2" type="text" formControlName="last_name" placeholder="Last Name" id="">
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input class="form-control my-2" type="text" formControlName="email" placeholder="Email" id="">
+        </div>
+        <div>
+            <label for="">Age</label>
+            <input class="form-control my-2" type="number" formControlName="age" placeholder="Age" id="">
+        </div>
+        <div>
+            <!-- <label for="">Image</label> -->
+            <input class="form-control my-2" type="text" formControlName="image">
+        </div>
+        <button [disabled]="sign_up_form.invalid" (click)="sign_up()" class="btn btn-success w-100">Sign Up</button>
+    </form>
+</div>

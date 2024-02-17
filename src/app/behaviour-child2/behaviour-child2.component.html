@@ -1,9 +1,13 @@
 <div class="">
-    <div *ngIf="user_details" class="shadow p-5">
-        <p>First Name: {{user_details?.first_name ? user_details?.first_name : 'Select A User'}}</p>
-        <p>Last Name: {{user_details?.last_name ? user_details?.last_name : 'Select A User'}}</p>
-        <p>Age: {{user_details?.age ? user_details?.age : 'Select A User'}}</p>
-        <p>Email: {{user_details?.email ? user_details?.email : 'Select A User'}}</p>
+    <div *ngIf="user_details?.first_name" [formGroup]="update_form" class="shadow p-5">
+        <label class="w-100">First Name: <input [class.is-invalid]="!update_form.get('first_name')?.valid" formControlName="first_name" class="form-control my-2" [defaultValue]="user_details?.first_name ? user_details?.first_name : 'Select A User'"></label>
+        <label class="w-100">Last Name: <input class="form-control my-2" [class.is-invalid]="!update_form.get('last_name')?.valid" formControlName="last_name" [defaultValue]="user_details?.last_name ? user_details?.last_name : 'Select A User'"></label>
+        <label class="w-100">Age: <input class="form-control my-2" [class.is-invalid]="!update_form.get('age')?.valid" formControlName="age" [defaultValue]="user_details?.age ? user_details?.age : 'Select A User'"></label>
+        <label class="w-100">Email: <input class="form-control my-2" [class.is-invalid]="!update_form.get('email')?.valid" formControlName="email" [defaultValue]="user_details?.email ? user_details?.email : 'Select A User'"></label>
+        <div class='flex'>
+            <button class='btn btn-info w-25 mx-2 ms-auto' (click)="change_value()">Check</button>
+            <button class='btn btn-success w-25 mx-2' (click)="save_editted_details()">Save</button>
+            <button class='btn btn-danger w-25 mx-2 me-auto' (click)="delete_user()">Delete</button>
+        </div>
     </div>
-
 </div>
