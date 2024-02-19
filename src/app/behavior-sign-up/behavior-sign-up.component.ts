@@ -12,7 +12,7 @@ import { BehaviourSubjectService } from '../services/behaviour-subject.service';
   styleUrl: './behavior-sign-up.component.css'
 })
 export class BehaviorSignUpComponent {
-  constructor (public formBuilder: FormBuilder, public router: Router ,private behaviorSubjectService: BehaviourSubjectService) {}
+  constructor(public formBuilder: FormBuilder, public router: Router, private behaviorSubjectService: BehaviourSubjectService) { }
 
   public sign_up_form = this.formBuilder.group({
     first_name: ['', [Validators.required,]],
@@ -20,22 +20,38 @@ export class BehaviorSignUpComponent {
     email: ['', [Validators.required,]],
     age: ['', [Validators.required,]],
     image: ['', [Validators.required,]],
+    image_base_64: ['']
   })
 
-  this.sign_up_form.get('image')?.valueChanges.subscribe(value=>{
-    // this.sign_up_form.patchValue({
-    //   // image: 
-    // })
-  })
+  onImageChange(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.convertImageToBase64(file);
+    }
+  }
 
-  sign_up(){
-    // let perform_sign_up = this.behaviorSubjectService.sign_up(this.sign_up_form.value);
-    // if (perform_sign_up) {
-    //   this.router.navigate(['/behaviour_subject']);
-    // }
-    console.log(this.sign_up_form.value);
-    
+
+  convertImageToBase64(file: File) {
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        this.sign_up_form.patchValue({
+          image_base_64: reader.result as string
+        });
+        console.log(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  sign_up() {
+    let perform_sign_up = this.behaviorSubjectService.sign_up(this.sign_up_form.value);
+    if (perform_sign_up) {
+      this.router.navigate(['/behaviour_subject']);
+    }
+    // console.log(this.sign_up_form.value);
+
     // console.log(perform_sign_up);
-    
+
   }
 }

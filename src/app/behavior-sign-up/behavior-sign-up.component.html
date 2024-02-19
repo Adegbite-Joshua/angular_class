@@ -17,8 +17,8 @@
             <input class="form-control my-2" type="number" formControlName="age" placeholder="Age" id="">
         </div>
         <div>
-            <!-- <label for="">Image</label> -->
-            <input class="form-control my-2" type="text" formControlName="image">
+            <label for="">Image</label>
+            <input class="form-control my-2" type="file" id="image" (change)="onImageChange($event)" #imageInput formControlName="image">
         </div>
         <button [disabled]="sign_up_form.invalid" (click)="sign_up()" class="btn btn-success w-100">Sign Up</button>
     </form>

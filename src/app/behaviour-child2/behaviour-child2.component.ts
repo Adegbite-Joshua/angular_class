@@ -47,6 +47,9 @@ export class BehaviourChild2Component {
     
     Object.keys(this.update_form.controls).forEach((key)=>{
       this.update_form.get(key)?.valueChanges.subscribe(value=>{
+        this.update_form.patchValue({
+          [key]: value
+        })
         this.change_value();
       })
     }) 

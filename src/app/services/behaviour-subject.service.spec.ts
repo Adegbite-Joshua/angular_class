@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { TestBed } from '@angular/core/testing';
 
 import { BehaviourSubjectService } from './behaviour-subject.service';
