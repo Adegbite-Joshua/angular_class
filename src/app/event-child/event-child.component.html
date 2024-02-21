@@ -1,0 +1,11 @@
+<div class="my-2 container mx-auto shadow-lg shadow-success text-success">
+    <div class="my-2 col-5 mx-auto">
+        <p>{{text}}</p>
+        <button class="my-2 btn btn-success" (click)="check()">Trigger Parent</button>
+
+        <div class="my-2 container mx-auto shadow-lg shadow-success">
+            <input type="text" class="my-2 form-control" [(ngModel)]="response">
+            <button (click)="send()">Send</button>
+        </div>
+    </div>
+</div>

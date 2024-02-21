@@ -1,0 +1,11 @@
+<div class="my-2 container mx-auto">
+    <div class="my-2 col-5 mx-auto shadow-lg p-4 text-success">
+        <p>This is the parent component</p>
+        <input type="text" class="my-2 form-control" [(ngModel)]="text" >
+        <button class="my-2 btn btn-succcess" (click)="sendMessage()">Send To Child</button>
+
+        <p>Receiver: {{data}}</p>
+    </div>
+</div>
+
+<app-event-child [logText]="logText" [text]="messageText" (eventemit)="receiveResponse($event)" ></app-event-child>

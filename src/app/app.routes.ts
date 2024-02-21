@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { BehaviorSignUpComponent } from './behavior-sign-up/behavior-sign-up.component';
 import { BehaviourSubjectParentComponent } from './behaviour-subject-parent/behaviour-subject-parent.component';
+import { EventParentComponent } from './event-parent/event-parent.component';
 import { HomeComponent } from './home/home.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
@@ -18,5 +19,6 @@ export const routes: Routes = [
     {path: 'behaviour_subject', component: BehaviourSubjectParentComponent},
     {path: 'behaviour_sign_up', component: BehaviorSignUpComponent},
     {path: 'pipe', component: PipeComponent},
+    {path: 'event', component: EventParentComponent},
 
 ];
